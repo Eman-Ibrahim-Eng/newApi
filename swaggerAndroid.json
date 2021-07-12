@@ -1,0 +1,271 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0", 
+        "title": "Al sahaba Project",
+        "description": "My Al-Sahaba Project Application API",
+        "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "tags": [
+        {"name": "Al sahaba Project", "description": "API for al sahaba in the system"}
+    ],
+    "schemes": [ "http", "https"],
+    "consumes": ["application/json"],
+    "produces": ["application/json"],
+
+    "paths": {
+        "/allBooks": {
+            "get": {
+                "tags": ["Al sahaba Project"],
+                "summary": "Get all books in bataBase",
+                "responses": { 
+                    "200": {
+                        "description": "Success........:)",
+                        "schema": {"$ref": "#/definitions/allBooks"}
+                    },
+                    "400":{
+                        "description":"description: The specified user ID is invalid (e.g. not a number)."
+                    },
+                    "404":{"description":"description: A user with the specified ID was not found."} 
+                }
+            }
+        },
+        "/allSahaba": {
+            "get": {
+                "tags": ["Al sahaba Project"],
+                "summary": "Get all sahaba in bataBase",
+                "responses": { 
+                    "200": {
+                        "description": "Success........:)",
+                        "schema": {"$ref": "#/definitions/allSahaba"}
+                    },
+                    "400":{
+                        "description":"description: The specified user ID is invalid (e.g. not a number)."
+                    },
+                    "404":{"description":"description: A user with the specified ID was not found."}  
+                }
+            }
+        },
+        "/allPersonBooks": {
+            "get": {
+                "tags": ["Al sahaba Project"],
+                "summary": "Get the date of birth and deth for each sahaby",
+                "responses": { 
+                    "200": {
+                        "description": "Success........:)",
+                        "schema": {"$ref": "#/definitions/dateOfSahaba"}
+                    },
+                    "400":{
+                        "description":"description: The specified user ID is invalid (e.g. not a number)."
+                    },
+                    "404":{"description":"description: A user with the specified ID was not found."}
+                    
+                }
+            }
+        },
+        "/allPlaces": {
+            "get": {
+                "tags": ["Al sahaba Project"],
+                "summary": "Get the place where birth and deth for each sahaby",
+                "responses": { 
+                    "200": {
+                        "description": "Success........:)",
+                        "schema": {"$ref": "#/definitions/placeOfSahaba"}
+                    },
+                    "400":{
+                        "description":"description: The specified user ID is invalid (e.g. not a number)."
+                    },
+                    "404":{"description":"description: A user with the specified ID was not found."}
+                    
+                }
+            }
+        },
+        "/allSefatBook": {
+            "post": {
+                "tags": ["Al sahaba Project"],
+                "summary": "Add one sahaby new",
+                "parameters": [{
+                    "in": "body",
+                    "schema": {"$ref": "#/definitions/addSahaby"}
+                }],
+                "responses": { 
+                    "200": {
+                        "description": "Success........:)"
+                    },
+                    "400":{
+                        "description":"description: The specified user ID is invalid (e.g. not a number)."
+                    },
+                    "404":{"description":"description: A user with the specified ID was not found."}
+                    
+                }
+            }
+        },
+        "/allSefat": {
+            "get": {
+                "tags": ["Al sahaba Project "],
+                "summary": "Get one sefa",
+                "parameters": [
+                    {"in": "path",
+                    "name": "sefatId",
+                    "required": true,
+                    "type": "integer",
+                    "minimum": 1,
+                    "description": "The id for sahaby needed"}
+                ],
+                "responses": { 
+                    "200": {
+                        "description": "Success........:)",
+                        "schema": {"$ref": "#/definitions/oneSefa"}
+                    },
+                    "400":{
+                        "description":"description: The specified user ID is invalid (e.g. not a number)."
+                    },
+                    "404":{"description":"description: A user with the specified ID was not found."}
+                    
+                }
+            }
+        },
+        "/allTheStory": {
+            "post": {
+                "tags": ["Al sahaba Project "],
+                "summary": "Add one sefa new",
+                "parameters": [{
+                    "in": "body",
+                    "name": "sefatId",
+                    "schema": {"$ref": "#/definitions/addSefa"}
+                }],
+                "responses": { 
+                    "200": {
+                        "description": "Success........:)"
+                    },
+                    "400":{
+                        "description":"description: The specified user ID is invalid (e.g. not a number)."
+                    },
+                    "404":{"description":"description: A user with the specified ID was not found."}
+                    
+                }
+            }
+        },
+        "/allVideos": {
+            "get": {
+                "tags": ["Al sahaba Project"],
+                "summary": "Get one sahaby have the ID",
+                "parameters": [
+                    {"in": "path",
+                    "name": "personId",
+                    "required": true,
+                    "type": "integer",
+                    "minimum": 1,
+                    "description": "The id for sahaby needed"}
+                ],
+                "responses": { 
+                    "200": {
+                        "description": "Success........:)",
+                        "schema": {"$ref": "#/definitions/oneSahaby"}
+                    },
+                    "400":{
+                        "description":"description: The specified user ID is invalid (e.g. not a number)."
+                    },
+                    "404":{"description":"description: A user with the specified ID was not found."} 
+                }
+            }
+        },
+        "/allVisitedPlaces": {
+            "get": {
+                "tags": ["Al sahaba Project"],
+                "summary": "Get one sahaby have the ID",
+                "parameters": [
+                    {"in": "path",
+                    "name": "personId",
+                    "required": true,
+                    "type": "integer",
+                    "minimum": 1,
+                    "description": "The id for sahaby needed"}
+                ],
+                "responses": { 
+                    "200": {
+                        "description": "Success........:)",
+                        "schema": {"$ref": "#/definitions/oneSahaby"}
+                    },
+                    "400":{
+                        "description":"description: The specified user ID is invalid (e.g. not a number)."
+                    },
+                    "404":{"description":"description: A user with the specified ID was not found."} 
+                }
+            }
+        }
+    },
+    "definitions": {
+        "allBooks": {
+            "properties": {
+                "bookId": {"type":"integer"},
+                "bookName": {"type":"string"},
+                "author": {"type":"string"},
+                "coverPic": {"type": "images"},
+                "bookDiscription": {"type":"string"},
+                "bookLink": {"url": "https//:"},
+                "class": {"type":"string"}
+            }
+        },
+        "allSahaba": {
+            "properties": {
+                "personId": {"type":"integer"},
+                "personName": {"type":"string"},
+                "dateOfBirth": {"type":"string"},
+                "dateOfDeath": {"type":"string"},
+                "placeOfDeth": {"type":"string"},
+                "placeOfBirth": {"type":"string"},
+                "personSefat": {"type":"string"},
+                "personBreif": {"type":"string"}
+            }
+        },
+        "dateOfSahaba": {
+            "properties": {
+                "personId": {"type": "integer","uniqueItems": true},
+                "personName": {"type": "string"},
+                "placeOfDeth":{"type": "string"},
+                "placeOfBirth":{"type":"string"}
+            }
+        },
+        "placeOfSahaba": {
+            "properties": {
+                "personId": {"type": "integer","uniqueItems": true},
+                "personName": {"type": "string"},
+                "placeOfDeth":{"type": "string"},
+                "placeOfBirth":{"type":"string"}
+            }
+        },
+        "addSahaby": {
+            "properties": {
+                "personName": {"type": "string"},
+                "dateOfBirth": {"type": "string"},
+                "dateOfDeath":{"type": "string"},
+                "placeOfDeth":{"type": "string"},
+                "placeOfBirth":{"type": "string"},
+                "personSefat": { "type": "string" },
+                "personStory": { "type": "string"},
+                "personBreif": { "type": "string"}
+            }
+        },
+        "oneSefa": {
+            "required": ["_id"],
+            "properties": {
+                "sefatId": {"type": "integer","uniqueItems": true},
+                "sefatName": {"type": "string"},
+                "sefatDetails": { "type": "string" }
+            }
+        },
+        "addSefa": {
+            "properties": {
+                "sefatName": {"type": "string"},
+                "sefatDetails": { "type": "string" }
+            }
+        }
+    }
+}
+
